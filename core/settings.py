@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-zwe#da-f9f7b6en)*+s3df&och$1g^hy27m2ew6%91h&uzym^a
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '192.168.0.134', '127.0.0.1']
 
 
 # Application definition
@@ -38,10 +38,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'rest_framework',
+    'corsheaders',
+
+    # My apps
     'church',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -111,10 +116,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
-STATICFILES_DIRS = (
-    BASE_DIR / 'base_static',
-)
-STATIC_ROOT = BASE_DIR / 'static'  # collectstatic
+# STATICFILES_DIRS = (
+#     BASE_DIR / 'base_static',
+# )
+# STATIC_ROOT = BASE_DIR / 'static'  # collectstatic
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / 'media'
