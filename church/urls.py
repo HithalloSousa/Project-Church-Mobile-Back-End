@@ -9,6 +9,8 @@ router.register('posts', api.PostViewSet, basename='posts')
 router.register('ultima_edb', api.PostUltimasEdb, basename='ultimaedb')
 router.register('pdf', api.PdfFirstItem, basename='pdf_first')
 router.register('carousel', api.CarouselShow, basename='carousel_show')
+router.register('gallery', api.PhotoGalleryViewSet, basename='gallery')
+router.register('devocionais', api.PostsDevocionais, basename='devocionais')
 
 urlpatterns = [
     path('', include(router.urls)),
